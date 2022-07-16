@@ -22,9 +22,6 @@ def update_investment_table(initial_amount):
     })
     return chart_data.round(2)
 
-
-st.title(f'¿Cuanto quieres invertir?')
-
 initial_amount_slider = st.slider('Desliza para definir tu monto inicial', 
     min_value=50, 
     max_value=500, 
