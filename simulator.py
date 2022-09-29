@@ -9,6 +9,7 @@ return_8espacios = .25
 return_cetes = .0969 # https://www.cetesdirecto.com/sites/portal/inicio
 return_bank_savings = .04 # Cuenta Ahorro Flexible HSBC (https://www.rankia.mx/blog/mejores-cuentas-mexico/2738108-mejores-cuentas-ahorro)
 return_stock_bmv = -.0330 # https://www.spglobal.com/spdji/en/indices/equity/sp-bmv-ipc/#overview
+return_bono_ahorro_nacional = .30
 years = [0,1,2,3,4,5,6,7,8,9,10]
 
 
@@ -18,7 +19,8 @@ def update_investment_table(initial_amount):
         '*8 Espacios': initial_amount * np.power((1 + return_8espacios - inflation), years),
         '**CETES 1 año': initial_amount * np.power((1 + return_cetes - inflation), years),
         '***Cuenta de ahorro': initial_amount * np.power((1 + return_bank_savings - inflation), years),
-        '****Bolsa Mexicana de Valores': initial_amount * np.power((1 + return_stock_bmv - inflation), years)
+        '****Bolsa Mexicana de Valores': initial_amount * np.power((1 + return_stock_bmv - inflation), years),
+        '*****Bonos del ahorro nacional': initial_amount * np.power((1 + return_bono_ahorro_nacional - inflation), years)
     })
     return chart_data.round(2)
 
@@ -45,7 +47,7 @@ fig.update_layout(legend=dict(
     xanchor="left",
     x=0.01
 ))
-
+# ---------------------------------------
 st.markdown('_La inflación acumulada en México durante 2022 es del 4%, [reportado por el semanario español Expansión](https://datosmacro.expansion.com/ipc-paises/mexico)._')
 
 st.plotly_chart(fig, config=dict(displayModeBar=False), use_container_width=True)
