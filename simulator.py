@@ -15,7 +15,7 @@ my_html = """
         var updateIframeHeight = 'false';
         var keepOverflowHidden = 'true';
         </script>
-        <script src='https://8espacios.mx/wp-content/plugins/advanced-iframe/js/ai_external.js'></script>"
+        <script src='https://8espacios.mx/wp-content/plugins/advanced-iframe/js/ai_external.js'></script>
         """
 
 hide_table_row_index = """
