@@ -3,6 +3,11 @@ import numpy as np
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import streamlit as st
+import streamlit.components.v1 as st_components
+
+# Wrapt the javascript as html code
+my_html = f"<script src='https://8espacios.mx/wp-content/plugins/advanced-iframe/js/ai_external.js'></script>"
 
 
 inflation = .04 # https://datosmacro.expansion.com/ipc-paises/mexico
@@ -47,6 +52,7 @@ fig.update_layout(legend=dict(
     x=0.01
 ))
 # ---------------------------------------
+# Execute your app
 st.markdown('_La inflación acumulada en México durante 2022 es del 4%, [reportado por el semanario español Expansión](https://datosmacro.expansion.com/ipc-paises/mexico)._')
 
 st.plotly_chart(fig, config=dict(displayModeBar=False), use_container_width=True)
@@ -57,3 +63,4 @@ st.markdown('_*El retorno de las inversiones de 8 Espacios está sujeto a cambio
 st.markdown('_**Con información de [CETESDirecto](https://www.cetesdirecto.com/sites/portal/inicio)_')
 st.markdown('_***[Cuenta Ahorro Flexible HSBC](https://www.rankia.mx/blog/mejores-cuentas-mexico/2738108-mejores-cuentas-ahorro) con información del portal Rankia.mx_')
 st.markdown('_****Con información del sitio de [Bolsa Mexicana de Valores](https://www.spglobal.com/spdji/en/indices/equity/sp-bmv-ipc/#overview)_')
+st_components.html(my_html)
