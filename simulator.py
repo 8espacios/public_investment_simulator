@@ -34,6 +34,7 @@ hide_menu_style = """
 no_scrolling = """
         <style>
         html, body, iframe {overflow: hidden;}
+        ::-webkit-scrollbar {display: none;}
         </style>
         """
 
