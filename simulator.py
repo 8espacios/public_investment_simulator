@@ -10,7 +10,7 @@ st.set_page_config(layout="wide")
 
 
 # Wrap the javascript as html code
-my_html = f"<script>var updateIframeHeight = 'true';var keepOverflowHidden = 'true';</script><script src='https://8espacios.mx/wp-content/plugins/advanced-iframe/js/ai_external.js'></script>"
+my_html = f"<script>var updateIframeHeight = 'false';var keepOverflowHidden = 'true';</script><script src='https://8espacios.mx/wp-content/plugins/advanced-iframe/js/ai_external.js'></script>"
 
 hide_table_row_index = """
             <style>
