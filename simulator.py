@@ -27,8 +27,8 @@ hide_menu_style = """
 
 no_scrolling = """
         <style>
-        html {overflow: hidden;}
-        body {overflow: hidden;}
+        *{overflow:hidden!important;}
+        html{overflow:scroll!important;}
         </style>
         """
 
