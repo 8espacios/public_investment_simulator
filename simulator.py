@@ -8,8 +8,9 @@ import streamlit.components.v1 as st_components
 
 st.set_page_config(layout="wide")
 
-# Wrapt the javascript as html code
-my_html = f"<script src='https://8espacios.mx/wp-content/plugins/advanced-iframe/js/ai_external.js'></script>"
+
+# Wrap the javascript as html code
+my_html = f"<script>var updateIframeHeight = 'true';var keepOverflowHidden = 'false';</script><script src='https://8espacios.mx/wp-content/plugins/advanced-iframe/js/ai_external.js'></script>"
 
 hide_table_row_index = """
             <style>
