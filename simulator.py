@@ -27,8 +27,7 @@ hide_menu_style = """
 
 no_scrolling = """
         <style>
-        iframe body {overflow:hidden!important;}
-        html{overflow:scroll!important;}
+        html, body, iframe {overflow: hidden;}
         </style>
         """
 
