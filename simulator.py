@@ -6,6 +6,8 @@ import plotly.graph_objects as go
 import streamlit as st
 import streamlit.components.v1 as st_components
 
+st.set_page_config(layout="wide")
+
 # Wrapt the javascript as html code
 my_html = f"<script src='https://8espacios.mx/wp-content/plugins/advanced-iframe/js/ai_external.js'></script>"
 
@@ -28,12 +30,6 @@ def update_investment_table(initial_amount):
     })
     return chart_data.round(2)
 
-initial_amount_slider = st.slider('Desliza para definir tu monto inicial', 
-    min_value=50, 
-    max_value=500, 
-    step=5, 
-    value=50,
-    format=f'$%dK')
 
 fig = px.line(update_investment_table(initial_amount_slider * 1000),
     labels = {
@@ -53,11 +49,24 @@ fig.update_layout(legend=dict(
 ))
 # ---------------------------------------
 # Execute your app
-st.markdown('_La inflación acumulada en México durante 2022 es del 4%, [reportado por el semanario español Expansión](https://datosmacro.expansion.com/ipc-paises/mexico)._')
+col1, col2 = st.columns(2)
 
-st.plotly_chart(fig, config=dict(displayModeBar=False), use_container_width=True)
+with col1:
+    st.subheader('Simula tu inversión con 8 espacios')
 
-st.table(update_investment_table(initial_amount_slider * 1000))
+    initial_amount_slider = st.slider( 
+    min_value=50, 
+    max_value=500, 
+    step=5, 
+    value=50,
+    format=f'$%dK')
+
+    st.markdown('_La inflación acumulada en México durante 2022 es del 4%, [reportado por el semanario español Expansión](https://datosmacro.expansion.com/ipc-paises/mexico)._')
+
+    st.plotly_chart(fig, config=dict(displayModeBar=False), use_container_width=True)
+
+with col2:
+    st.table(update_investment_table(initial_amount_slider * 1000))
 
 st.markdown('_*El retorno de las inversiones de 8 Espacios está sujeto a cambios y el detalle se puede consultar en las notas técnicas de cada proyecto._')
 st.markdown('_**Con información de [CETESDirecto](https://www.cetesdirecto.com/sites/portal/inicio)_')
