@@ -33,9 +33,9 @@ hide_menu_style = """
 
 no_scrolling = """
         <style>
-        html {overflow: hidden;}
-        body {overflow: hidden;}
-        iframe {overflow: hidden;}
+        html {overflow-y: hidden;}
+        body {overflow-y: hidden;}
+        iframe {overflow-y: hidden;}
         ::-webkit-scrollbar {display: none;}
         </style>
         """
@@ -80,7 +80,7 @@ with col1:
 
     fig = px.line(update_investment_table(initial_amount_slider * 1000).drop(['Plazo'], axis=1),
         labels = {
-            'index':'Año de inversión',
+            'index':'Plazo en años',
             'value':'Monto inicial + intereses',
             'variable':'Instrumento'
         }
