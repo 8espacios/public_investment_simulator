@@ -10,7 +10,13 @@ st.set_page_config(layout="wide")
 
 
 # Wrap the javascript as html code
-my_html = f"<script>var updateIframeHeight = 'false';var keepOverflowHidden = 'true';</script><script src='https://8espacios.mx/wp-content/plugins/advanced-iframe/js/ai_external.js'></script>"
+my_html = """
+        <script>
+        var updateIframeHeight = 'false';
+        var keepOverflowHidden = 'true';
+        </script>
+        <script src='https://8espacios.mx/wp-content/plugins/advanced-iframe/js/ai_external.js'></script>"
+        """
 
 hide_table_row_index = """
             <style>
@@ -55,6 +61,9 @@ def update_investment_table(initial_amount):
 # Execute your app
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 st.markdown(no_scrolling, unsafe_allow_html=True)
+st.markdown(hide_table_row_index, unsafe_allow_html=True)
+st.markdown(my_html, unsafe_allow_html=True)
+
 col1, col2 = st.columns(2)
 
 with col1:
@@ -89,7 +98,6 @@ with col1:
     st.plotly_chart(fig, config=dict(displayModeBar=False), use_container_width=True)
 
 with col2:
-    st.markdown(hide_table_row_index, unsafe_allow_html=True)
     st.table(update_investment_table(initial_amount_slider * 1000))
 
 st.markdown('_La inflación acumulada en México durante 2022 es del 4%, [reportado por el semanario español Expansión](https://datosmacro.expansion.com/ipc-paises/mexico)._')
@@ -97,4 +105,3 @@ st.markdown('_*El retorno de las inversiones de 8 Espacios está sujeto a cambio
 st.markdown('_**Con información de [CETESDirecto](https://www.cetesdirecto.com/sites/portal/inicio)_')
 st.markdown('_***[Cuenta Ahorro Flexible HSBC](https://www.rankia.mx/blog/mejores-cuentas-mexico/2738108-mejores-cuentas-ahorro) con información del portal Rankia.mx_')
 st.markdown('_****Con información del sitio de [Bolsa Mexicana de Valores](https://www.spglobal.com/spdji/en/indices/equity/sp-bmv-ipc/#overview)_')
-st_components.html(my_html)
