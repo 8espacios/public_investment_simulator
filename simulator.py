@@ -29,7 +29,7 @@ years = [0,1,2,3,4,5,6,7,8,9,10,11,12]
 @st.cache(show_spinner=True)
 def update_investment_table(initial_amount):
     chart_data = pd.DataFrame({
-        'Año de inversión': years,
+        'Plazo': years,
         '*8 Espacios': initial_amount * np.power((1 + return_8espacios - inflation), years),
         '**CETES 1 año': initial_amount * np.power((1 + return_cetes - inflation), years),
         '***Cuenta de ahorro': initial_amount * np.power((1 + return_bank_savings - inflation), years),
