@@ -3,15 +3,7 @@ import numpy as np
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-import streamlit as st
-from streamlit.components.v1 import html
 
-
-# Wrapt the javascript as html code
-my_html = f"<script src='https://8espacios.mx/wp-content/plugins/advanced-iframe/js/ai_external.js'></script>"
-
-# Execute your app
-html(my_html)
 
 inflation = .04 # https://datosmacro.expansion.com/ipc-paises/mexico
 return_8espacios = .25
