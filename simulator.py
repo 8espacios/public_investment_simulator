@@ -18,6 +18,12 @@ hide_table_row_index = """
             </style>
             """
 
+hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        </style>
+        """
+
 inflation = .04 # https://datosmacro.expansion.com/ipc-paises/mexico
 return_8espacios = .25
 return_cetes = .0969 # https://www.cetesdirecto.com/sites/portal/inicio
@@ -40,6 +46,7 @@ def update_investment_table(initial_amount):
 
 # ---------------------------------------
 # Execute your app
+st.markdown(hide_menu_style, unsafe_allow_html=True)
 col1, col2 = st.columns(2)
 
 with col1:
