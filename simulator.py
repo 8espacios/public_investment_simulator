@@ -51,7 +51,7 @@ with col1:
     value=50,
     format=f'$%dK')
 
-    fig = px.line(update_investment_table(initial_amount_slider * 1000).drop(['Año de inversión'], axis=1),
+    fig = px.line(update_investment_table(initial_amount_slider * 1000).drop(['Plazo'], axis=1),
         labels = {
             'index':'Año de inversión',
             'value':'Monto inicial + intereses',
