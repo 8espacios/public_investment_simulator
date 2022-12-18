@@ -57,7 +57,7 @@ def update_investment_table(initial_amount):
         '***Cuenta de ahorro': initial_amount * np.power((1 + return_bank_savings - inflation), years),
         '****Bolsa Mexicana de Valores': initial_amount * np.power((1 + return_stock_bmv - inflation), years),
     })
-    return chart_data.round(2)
+    return chart_data
 
 
 # ---------------------------------------
@@ -96,12 +96,13 @@ with col1:
             x=0.01
         ),
         margin=dict(l=0, r=0, t=0, b=0),
+        yaxis_range=[-100000,5000000]
     )
 
     st.plotly_chart(fig, config=dict(displayModeBar=False), use_container_width=True)
 
 with col2:
-    st.table(update_investment_table(initial_amount_slider * 1000))
+    st.table(update_investment_table(initial_amount_slider * 1000).style.format(precision=2))
 
 st.markdown('_La inflación acumulada en México durante 2022 es del 4%, [reportado por el semanario español Expansión](https://datosmacro.expansion.com/ipc-paises/mexico)._')
 st.markdown('_*El retorno de las inversiones de 8 Espacios está sujeto a cambios y el detalle se puede consultar en las notas técnicas de cada proyecto._')
