@@ -40,6 +40,24 @@ no_scrolling = """
         </style>
         """
 
+# style
+th_props = [
+  ('font-size', '14px'),
+  ('text-align', 'center'),
+  ('font-weight', 'bold'),
+  ('color', '#6d6d6d'),
+  ('background-color', '#f7ffff')
+  ]
+                               
+td_props = [
+  ('font-size', '12px')
+  ]
+                                 
+styles = [
+  dict(selector="th", props=th_props),
+  dict(selector="td", props=td_props)
+  ]
+
 inflation = .04 # https://datosmacro.expansion.com/ipc-paises/mexico
 return_8espacios = .25
 return_cetes = .0969 # https://www.cetesdirecto.com/sites/portal/inicio
@@ -102,7 +120,7 @@ with col1:
     st.plotly_chart(fig, config=dict(displayModeBar=False), use_container_width=True)
 
 with col2:
-    st.table(update_investment_table(initial_amount_slider * 1000).style.format(precision=2))
+    st.table(update_investment_table(initial_amount_slider * 1000).style.format(precision=2).set_table_styles(styles))
 
 st.markdown('_La inflación acumulada en México durante 2022 es del 4%, [reportado por el semanario español Expansión](https://datosmacro.expansion.com/ipc-paises/mexico)._')
 st.markdown('_*El retorno de las inversiones de 8 Espacios está sujeto a cambios y el detalle se puede consultar en las notas técnicas de cada proyecto._')
