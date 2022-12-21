@@ -114,7 +114,7 @@ with col1:
             x=0.01
         ),
         margin=dict(l=0, r=0, t=0, b=0),
-        yaxis_range=[-100000,5000000]
+        yaxis_range=[-100000,2000000]
     )
 
     st.plotly_chart(fig, config=dict(displayModeBar=False), use_container_width=True)
