@@ -59,7 +59,7 @@ styles = [
   ]
 
 inflation = .04 # https://datosmacro.expansion.com/ipc-paises/mexico
-return_8espacios = .25
+return_8espacios = .14
 return_cetes = .0969 # https://www.cetesdirecto.com/sites/portal/inicio
 return_bank_savings = .04 # Cuenta Ahorro Flexible HSBC (https://www.rankia.mx/blog/mejores-cuentas-mexico/2738108-mejores-cuentas-ahorro)
 return_stock_bmv = -.0330 # https://www.spglobal.com/spdji/en/indices/equity/sp-bmv-ipc/#overview
